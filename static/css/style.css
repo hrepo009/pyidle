@@ -1,0 +1,136 @@
+/* बेसिक और थीम वेरिएबल्स */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #2c3e50;
+    --header-bg: #f4f6f8;
+    --border-color: #bdc3c7;
+    --button-bg: #3498db;
+    --button-hover-bg: #2980b9;
+    --button-text-color: #ffffff;
+    --terminal-bg: #ecf0f1;
+    --terminal-text: #2c3e50;
+    --error-color: #e74c3c;
+}
+
+body.dark-mode {
+    --bg-color: #2c3e50;
+    --text-color: #ecf0f1;
+    --header-bg: #34495e;
+    --border-color: #7f8c8d;
+    --button-bg: #1abc9c;
+    --button-hover-bg: #16a085;
+    --button-text-color: #ffffff;
+    --terminal-bg: #34495e;
+    --terminal-text: #ecf0f1;
+    --error-color: #e74c3c;
+}
+
+/* ग्लोबल स्टाइल्स */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden; /* पेज को स्क्रॉल होने से रोकता है */
+}
+
+/* हेडर और कंट्रोल्स */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.controls button {
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* IDE कंटेनर और स्प्लिट लेआउट */
+#ide-container {
+    display: flex;
+    flex-direction: column; /* मोबाइल पर वर्टिकल स्टैक */
+    height: calc(100vh - 61px); /* हेडर की ऊंचाई घटाकर */
+}
+
+.split-container {
+    display: flex;
+}
+
+.gutter {
+    background-color: var(--border-color);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    cursor: col-resize;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxl79uzZfxmbNm3a/xkYGBgYAxAIAwMhAAD0J3y2EbN/AAAAAElFTkSuQmCC');
+}
+
+.gutter.gutter-vertical {
+    cursor: row-resize;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=');
+}
+
+/* एडिटर और टर्मिनल स्टाइल */
+#editor-container {
+    height: 100%;
+    width: 100%;
+    border-right: 1px solid var(--border-color);
+}
+
+#output-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#terminal {
+    flex-grow: 1;
+    background-color: var(--terminal-bg);
+    color: var(--terminal-text);
+    padding: 15px;
+    margin: 0;
+    font-family: "Fira Code", "Courier New", monospace;
+    font-size: 14px;
+    white-space: pre-wrap; /* टेक्स्ट को रैप करता है */
+    word-wrap: break-word; /* लंबे शब्दों को तोड़ता है */
+    overflow-y: auto;
+}
+
+#terminal .error {
+    color: var(--error-color);
+}
+
+/* रेस्पॉन्सिव डिज़ाइन */
+@media (min-width: 768px) {
+    #ide-container {
+        flex-direction: row; /* डेस्कटॉप पर हॉरिजॉन्टल */
+    }
+}
+

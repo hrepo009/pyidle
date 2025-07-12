@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser-Based Python IDE</title>
+    <!-- CSS फाइल -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Monaco Editor Loader -->
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+    <!-- Split.js for resizable panes -->
+    <script src="https://unpkg.com/split.js/dist/split.min.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <h1>Python Web IDE</h1>
+        <div class="controls">
+            <button id="run-button">▶ Run</button>
+            <button id="save-button">💾 Save</button>
+            <button id="load-button">📂 Load</button>
+            <button id="theme-toggle-button">🌙</button>
+        </div>
+    </header>
+
+    <div id="ide-container" class="split-container">
+        <!-- कोड एडिटर के लिए कंटेनर -->
+        <div id="editor-container" class="split"></div>
+        <!-- आउटपुट टर्मिनल के लिए कंटेनर -->
+        <div id="output-container" class="split">
+            <pre id="terminal"></pre>
+        </div>
+    </div>
+
+    <!-- JavaScript फाइल -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

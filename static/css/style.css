@@ -48,9 +48,9 @@ body {
     flex-shrink: 0;
 }
 
-.main-header h1 {
+.hedo {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 30px;
 }
 
 .controls button {
@@ -127,10 +127,32 @@ body {
     color: var(--error-color);
 }
 
+span{
+    margin-left: 10px;
+}
+a{
+    text-decoration: none;
+    font-size: 10px;
+}
+a:hover{
+    text-decoration: underline;
+}
 /* रेस्पॉन्सिव डिज़ाइन */
 @media (min-width: 768px) {
     #ide-container {
         flex-direction: row; /* डेस्कटॉप पर हॉरिजॉन्टल */
     }
 }
-
+/* रेस्पॉन्सिव डिज़ाइन */
+@media (max-width: 500px) {
+    #ide-container {
+        flex-direction: column; /* डेस्कटॉप पर हॉरिजॉन्टल */
+    }
+    .main-header{
+        flex-direction: column;
+    }
+    .heado{
+        font-size: 20px;
+        display: none;
+    }
+}

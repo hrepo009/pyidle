@@ -144,7 +144,7 @@ a:hover{
     }
 }
 /* रेस्पॉन्सिव डिज़ाइन */
-@media (max-width: 500px) {
+@media (max-width: 450px) {
     #ide-container {
         flex-direction: column; /* डेस्कटॉप पर हॉरिजॉन्टल */
     }
